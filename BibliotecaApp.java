@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -6,7 +7,7 @@ public class BibliotecaApp {
     // prestamo = [idPrestamo, nombreUsuario, tituloLibro, diasPrestamo, multaPorDia]
     static ArrayList<ArrayList<Object>> prestamos = new ArrayList<>();
     static Scanner sc = new Scanner(System.in);
-    String prestamos[][]= new int [5][200];
+    static String Prestamos[][] = new String[5][200];
 
     public static void main(String[] args) {
         int opcion;
@@ -15,14 +16,22 @@ public class BibliotecaApp {
             opcion = leerEntero("Seleccione una opción: ");
 
             switch (opcion) {
-                case 1 -> registrarPrestamo();
-                case 2 -> mostrarPrestamos();
-                case 3 -> buscarPrestamoPorId();
-                case 4 -> actualizarPrestamo();
-                case 5 -> eliminarPrestamo();
-                case 6 -> calcularTotalMultas();
-                case 7 -> System.out.println("Saliendo...");
-                default -> System.out.println("Opción inválida.");
+                case 1 ->
+                    registrarPrestamo();
+                case 2 ->
+                    mostrarPrestamos();
+                case 3 ->
+                    buscarPrestamoPorId();
+                case 4 ->
+                    actualizarPrestamo();
+                case 5 ->
+                    eliminarPrestamo();
+                case 6 ->
+                    calcularTotalMultas();
+                case 7 ->
+                    System.out.println("Saliendo...");
+                default ->
+                    System.out.println("Opción inválida.");
             }
             System.out.println();
         } while (opcion != 7);
@@ -42,18 +51,42 @@ public class BibliotecaApp {
     }
 
     // ====== CRUD (por implementar) ======
-    static void registrarPrestamo() { /* TODO */ }
-    static void mostrarPrestamos() { /* TODO */ }
-    static void buscarPrestamoPorId() { /* TODO */ }
-    static void actualizarPrestamo() { /* TODO */ }
-    static void eliminarPrestamo() { /* TODO */ }
+    static void registrarPrestamo() {
+        /* TODO */ }
+
+    static void mostrarPrestamos() {
+        /* TODO */ }
+
+    static void buscarPrestamoPorId() {
+        /* TODO */ }
+
+    static void actualizarPrestamo() {
+        /* TODO */ }
+
+    static void eliminarPrestamo() {
+        System.out.print("Ingrese el ID del préstamo a eliminar:");
+        int idEliminar = sc.nextInt();
+        for (int i = 0; i < 200; i++) {
+            if (Integer.parseInt(Prestamos[0][i]) == idEliminar) {
+                Prestamos[0][i] = null;
+                Prestamos[1][i] = null;
+                Prestamos[2][i] = null;
+                Prestamos[3][i] = null;
+                Prestamos[4][i] = null;
+                Prestamos[5][i] = null;
+            }
+        }
+    }
 
     // ====== Cálculo (por implementar) ======
-    static void calcularTotalMultas() { 
-        
-        
+    static void calcularTotalMultas() {
 
-     }
+        int multas[] = new int[200];
+        for (int i = 0; i < 200; i++) {
+            multas[i] = Integer.parseInt(Prestamos[4][i]) * Integer.parseInt(Prestamos[5][i]);
+        }
+
+    }
 
     // ====== Utilidades mínimas ======
     static int leerEntero(String msg) {
