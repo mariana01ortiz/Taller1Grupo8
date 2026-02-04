@@ -6,6 +6,7 @@ public class BibliotecaApp {
     // prestamo = [idPrestamo, nombreUsuario, tituloLibro, diasPrestamo, multaPorDia]
     static ArrayList<ArrayList<Object>> prestamos = new ArrayList<>();
     static Scanner sc = new Scanner(System.in);
+    String prestamos[][]= new int [5][200];
 
     public static void main(String[] args) {
         int opcion;
@@ -48,7 +49,11 @@ public class BibliotecaApp {
     static void eliminarPrestamo() { /* TODO */ }
 
     // ====== Cálculo (por implementar) ======
-    static void calcularTotalMultas() { /* TODO */ }
+    static void calcularTotalMultas() { 
+        
+        
+
+     }
 
     // ====== Utilidades mínimas ======
     static int leerEntero(String msg) {
