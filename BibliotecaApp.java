@@ -63,6 +63,7 @@ public class BibliotecaApp {
     static void actualizarPrestamo() {
         /* TODO */ }
 
+    // ====== Eliminar prestamos ======
     static void eliminarPrestamo() {
         System.out.print("Ingrese el ID del préstamo a eliminar:");
         int idEliminar = sc.nextInt();
@@ -74,11 +75,13 @@ public class BibliotecaApp {
                 Prestamos[3][i] = null;
                 Prestamos[4][i] = null;
                 Prestamos[5][i] = null;
+            } else {
+                System.out.println("ID no encontrado.");
             }
         }
     }
 
-    // ====== Cálculo (por implementar) ======
+    // ====== Cálculo de Multas ======
     static void calcularTotalMultas() {
 
         int multas[] = new int[200];
