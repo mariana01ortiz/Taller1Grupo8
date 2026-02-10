@@ -16,21 +16,28 @@ public class BibliotecaApp {
             opcion = leerEntero("Seleccione una opción: ");
 
             switch (opcion) {
-                case 1 ->
+                case 1:
                     registrarPrestamo();
-                case 2 ->
+                    break;
+                case 2:
                     mostrarPrestamos();
-                case 3 ->
+                    break;
+                case 3:
                     buscarPrestamoPorId();
-                case 4 ->
+                    break;
+                case 4:         
                     actualizarPrestamo();
-                case 5 ->
+                    break;
+                case 5:
                     eliminarPrestamo();
-                case 6 ->
+                    break;
+                case 6:
                     calcularTotalMultas();
-                case 7 ->
+                    break;
+                case 7:
                     System.out.println("Saliendo...");
-                default ->
+                    break;
+                default:
                     System.out.println("Opción inválida.");
             }
             System.out.println();
@@ -90,19 +97,19 @@ public class BibliotecaApp {
         }
 
  
-
+    }
     
     static void buscarPrestamoPorId() { 
         System.out.println("Ingrese el ID a buscar:");
-        String IDbuscar = leer.next();
+        String IDbuscar = sc.next();
         boolean encontrado = false;
         for (int i = 0; i < 200; i++) {
-            if (prestamos[1][i] != null && prestamos[1][i].equals(IDbuscar)) {
-                System.out.println("ID del usuario: " + prestamos[1][i]);
-                System.out.println("Nombre del usuario: " + prestamos[2][i]);
-                System.out.println("Libro: " + prestamos[3][i]);
-                System.out.println("Días de préstamo: " + prestamos[4][i]);
-                System.out.println("Multa por día: " + prestamos[5][i]);
+            if (Prestamos[1][i] != null && Prestamos[1][i].equals(IDbuscar)) {
+                System.out.println("ID del usuario: " + Prestamos[1][i]);
+                System.out.println("Nombre del usuario: " + Prestamos[2][i]);
+                System.out.println("Libro: " + Prestamos[3][i]);
+                System.out.println("Días de préstamo: " + Prestamos[4][i]);
+                System.out.println("Multa por día: " + Prestamos[5][i]);
                 encontrado = true;
             }
         }
@@ -113,21 +120,21 @@ public class BibliotecaApp {
 
     static void actualizarPrestamo() { 
         System.out.println("Ingrese el ID del préstamo que desea cambiar:");
-        String idBuscar = leer.next();
+        String idBuscar = sc.next();
         boolean encontrado = false;
         for (int i = 0; i < 200; i++) {
-            if (prestamos[1][i] != null && prestamos[1][i].equals(idBuscar)) {
+            if (Prestamos[1][i] != null && Prestamos[1][i].equals(idBuscar)) {
                     
                 System.out.println("Ingrese el nuevo ID:");
-                prestamos[1][i] = leer.nextLine();
+                Prestamos[1][i] = sc.nextLine();
                 System.out.println("Ingrese el nuevo nombre:");
-                prestamos[2][i] = leer.nextLine();
+                Prestamos[2][i] = sc.nextLine();
                 System.out.println("Ingrese el nuevo título del libro:");
-                prestamos[3][i] = leer.nextLine();
+                Prestamos[3][i] = sc.nextLine();
                 System.out.println("Ingrese los días de préstamo:");
-                prestamos[4][i] = leer.nextLine();
+                Prestamos[4][i] = sc.nextLine();
                 System.out.println("Ingrese la multa por día:");
-                prestamos[5][i] = leer.nextLine();
+                Prestamos[5][i] = sc.nextLine();
                 System.out.println("Préstamo actualizado correctamente.");
                 encontrado = true;
             }
