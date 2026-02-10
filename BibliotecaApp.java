@@ -74,12 +74,13 @@ public class BibliotecaApp {
 
     static void mostrarPrestamos() {
         System.out.print("ID");
-        System.out.print("Nombre de Usuario:");
-        System.out.print("ID");
-        System.out.print("ID");
-        System.out.print("ID");
+        System.out.print("Nombre de Usuario");
+        System.out.print("Titulo del Libro");
+        System.out.print("Dias de prestamo");
+        System.out.print("Valor de multa por dia");
 
         for (int i = 0; i < 200; i++) {
+            System.out.print("\n");
             System.out.print(Prestamos[0][i]);
             System.out.print(Prestamos[1][i]);
             System.out.print(Prestamos[2][i]);
@@ -88,19 +89,80 @@ public class BibliotecaApp {
             System.out.print("\n");
         }
 
+ 
+
+    
+    static void buscarPrestamoPorId() { 
+        System.out.println("Ingrese el ID a buscar:");
+        String IDbuscar = leer.next();
+        boolean encontrado = false;
+        for (int i = 0; i < 200; i++) {
+            if (prestamos[1][i] != null && prestamos[1][i].equals(IDbuscar)) {
+                System.out.println("ID del usuario: " + prestamos[1][i]);
+                System.out.println("Nombre del usuario: " + prestamos[2][i]);
+                System.out.println("Libro: " + prestamos[3][i]);
+                System.out.println("Días de préstamo: " + prestamos[4][i]);
+                System.out.println("Multa por día: " + prestamos[5][i]);
+                encontrado = true;
+            }
+        }
+        if (!encontrado) {
+            System.out.println("No se encontró usuario con ese ID");
+        }
     }
 
-    static void buscarPrestamoPorId() {
-        /* TODO */ }
+    static void actualizarPrestamo() { 
+        System.out.println("Ingrese el ID del préstamo que desea cambiar:");
+        String idBuscar = leer.next();
+        boolean encontrado = false;
+        for (int i = 0; i < 200; i++) {
+            if (prestamos[1][i] != null && prestamos[1][i].equals(idBuscar)) {
+                    
+                System.out.println("Ingrese el nuevo ID:");
+                prestamos[1][i] = leer.nextLine();
+                System.out.println("Ingrese el nuevo nombre:");
+                prestamos[2][i] = leer.nextLine();
+                System.out.println("Ingrese el nuevo título del libro:");
+                prestamos[3][i] = leer.nextLine();
+                System.out.println("Ingrese los días de préstamo:");
+                prestamos[4][i] = leer.nextLine();
+                System.out.println("Ingrese la multa por día:");
+                prestamos[5][i] = leer.nextLine();
+                System.out.println("Préstamo actualizado correctamente.");
+                encontrado = true;
+            }
+        }
+        if (!encontrado) {
+            System.out.println("No se encontró el préstamo.");
+        }
+    }
+ 
 
-    static void actualizarPrestamo() {
-        /* TODO */ }
-
+    // ====== Eliminar prestamos ======
     static void eliminarPrestamo() {
-        /* TODO */ }
+        System.out.print("Ingrese el ID del préstamo a eliminar:");
+        int idEliminar = sc.nextInt();
+        for (int i = 0; i < 200; i++) {
+            if (Integer.parseInt(Prestamos[0][i]) == idEliminar) {
+                Prestamos[0][i] = null;
+                Prestamos[1][i] = null;
+                Prestamos[2][i] = null;
+                Prestamos[3][i] = null;
+                Prestamos[4][i] = null;
+                Prestamos[5][i] = null;
+            } else {
+                System.out.println("ID no encontrado.");
+            }
+        }
+    }
 
-    // ====== Cálculo (por implementar) ======
+    // ====== Cálculo de Multas ======
     static void calcularTotalMultas() {
+
+        int multas[] = new int[200];
+        for (int i = 0; i < 200; i++) {
+            multas[i] = Integer.parseInt(Prestamos[4][i]) * Integer.parseInt(Prestamos[5][i]);
+        }
 
     }
 
