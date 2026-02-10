@@ -51,8 +51,46 @@ public class BibliotecaApp {
     }
 
     // ====== CRUD (por implementar) ======
-    static void registrarPrestamo() { /* TODO */ }
-    static void mostrarPrestamos() { /* TODO */ }
+    static void registrarPrestamo() {
+        for (int i = 0; i < 200; i++) {
+            System.out.println("Ingrese su Identificación");
+            String id = sc.nextLine();
+            Prestamos[0][i] = id;
+            System.out.println("Ingrese su Nombre de Usuario");
+            String nu = sc.nextLine();
+            Prestamos[1][i] = nu;
+            System.out.println("Ingrese el Titulo del Libro");
+            String tl = sc.nextLine();
+            Prestamos[2][i] = tl;
+            System.out.println("Ingrese los días de prestamos ");
+            String dp = sc.nextLine();
+            Prestamos[3][i] = dp;
+            System.out.println("Ingrese la multa por dia");
+            String md = sc.nextLine();
+            Prestamos[4][i] = md;
+        }
+
+    }
+
+    static void mostrarPrestamos() {
+        System.out.print("ID");
+        System.out.print("Nombre de Usuario");
+        System.out.print("Titulo del Libro");
+        System.out.print("Dias de prestamo");
+        System.out.print("Valor de multa por dia");
+
+        for (int i = 0; i < 200; i++) {
+            System.out.print("\n");
+            System.out.print(Prestamos[0][i]);
+            System.out.print(Prestamos[1][i]);
+            System.out.print(Prestamos[2][i]);
+            System.out.print(Prestamos[3][i]);
+            System.out.print(Prestamos[4][i]);
+            System.out.print("\n");
+        }
+
+ 
+
     
     static void buscarPrestamoPorId() { 
         System.out.println("Ingrese el ID a buscar:");
